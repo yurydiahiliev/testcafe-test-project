@@ -4,7 +4,7 @@
   "description": "Simple project for learning TestCafe",
   "main": "index.js",
   "scripts": {
-    "test": "testcafe chrome src/tests/one.test.ts"
+    "test": "testcafe chrome --concurrency=3 src/tests/"
   },
   "author": "Yurii Diahiliev",
   "license": "ISC",
