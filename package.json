@@ -1,0 +1,14 @@
+{
+  "name": "testcafe-test-project",
+  "version": "1.0.0",
+  "description": "Simple project for learning TestCafe",
+  "main": "index.js",
+  "scripts": {
+    "test": "testcafe chrome src/tests/one.test.ts"
+  },
+  "author": "Yurii Diahiliev",
+  "license": "ISC",
+  "devDependencies": {
+    "testcafe": "^3.5.0"
+  }
+}
