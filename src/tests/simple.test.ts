@@ -1,7 +1,13 @@
 import { Selector } from 'testcafe';
-import { searchInGoogle } from './roles';
 
-fixture `Getting Started`
+fixture`Getting Started`
+    .beforeEach(async t => {
+        await t
+            .navigateTo('http://google.com.ua')
+            .typeText('[name=q]', 'TestCafe io').pressKey('enter')
+            .click(Selector('a').withText('testcafe.io').nth(0))
+            .expect(Selector('.description').innerText).eql('TestCafe is a user-friendly end-to-end testing solution. Free and open-source test runner. Powerful desktop app.');
+    })
 
 test('Test 1 - Checking installation commands in TestCafe portal', async t => {
     await testSteps(t);
@@ -29,7 +35,6 @@ test('Test 6 - Checking installation commands in TestCafe portal', async t => {
 
 async function testSteps(t: TestController) {
     await t
-        .useRole(searchInGoogle)
         .click(Selector('.header-right-nav a').nth(0))
         .click(Selector('a').withText('Install TestCafe'))
         .expect(Selector('code').withText('npm i -g testcafe').visible).ok()
